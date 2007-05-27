@@ -1,1 +1,5 @@
-exportPattern("^[[:alpha:]]+")
+export(SS.RGBcalib, SS.calib, dprime.ABX, dprime.SD, dprime.mAFC, 
+	dprime.oddity, glm.WH, glm.lambda, mafc.probit, 
+	mafc.logit, probit.lambda)
+S3method(print, summary.lambda)
+S3method(summary, lambda)

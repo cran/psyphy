@@ -68,7 +68,7 @@ W.nls <- nls(Lum ~ SS.calib(Blev, k, gamm, GL), data = RGB,
 				subset = (Gun == "W"))
 summary(W.nls)
 
-#curvature is greater when GL is 0:255
+#curvature (parameter effect) is greater when GL is 0:255
 Wc.nls <- nls(Lum ~ SS.calib(Blev, k, gamm, GL*255), data = RGB,
 				subset = (Gun == "W"))
 MASS::rms.curv(W.nls)

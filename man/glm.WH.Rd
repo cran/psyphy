@@ -5,7 +5,8 @@
   A probit fit of a psychometric function with upper asymptote less than 1 is obtained by cycling between a fit with \code{glm} using the \code{probit.lambda} link and \code{optimize} to estimate \code{lambda}, 1 - the upper asymptotic value, until the log Likelihood changes by less than a  pre-set tolerance.
 }
 \usage{
-glm.WH(formula, data, NumAlt = 2, lambda.init = 0.01, interval = c(0, 0.05), trace = FALSE, tol = 1e-06, ...)
+glm.WH(formula, data, NumAlt = 2, lambda.init = 0.01, 
+	interval = c(0, 0.05), trace = FALSE, tol = 1e-06, ...)
 }
 \arguments{
   \item{formula}{ a symbolic description of the model to be fit. }

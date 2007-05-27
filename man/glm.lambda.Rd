@@ -5,7 +5,8 @@
  A wrapper for \code{glm} in which the deviance for the model with binomial family and link \code{probit.lambda} is profiled as a function of \code{lambda}, the upper asymptote of the psychometric function.  
 }
 \usage{
-glm.lambda(formula, data, NumAlt = 2, lambda = seq(0, 0.1, len = 40), plot.it = FALSE, ...)
+glm.lambda(formula, data, NumAlt = 2, lambda = seq(0, 0.1, len = 40), 
+	plot.it = FALSE, ...)
 }
 \arguments{
   \item{formula}{a symbolic description of the model to be fit }
@@ -55,10 +56,13 @@ resp.mat <- matrix(c(ny, nn), ncol = 2)
 ## First with upper asymptote at 1
 dd.glm <- glm(resp.mat ~ cnt, family = binomial(mafc.probit(3)))
 summary(dd.glm)
-dd.lam <- glm.lambda(resp.mat ~ cnt, NumAlt = 3, lambda = seq(0, 0.03, len = 100), plot.it = TRUE)
+dd.lam <- glm.lambda(resp.mat ~ cnt, NumAlt = 3, lambda = seq(0, 0.03, 
+	len = 100), plot.it = TRUE)
 summary(dd.lam)
 ## can refine interval, but doesn't change result much
-dd.lam2 <- glm.lambda(resp.mat ~ cnt, NumAlt = 3, lambda = seq(dd.lam$lambda/sqrt(2), dd.lam$lambda*sqrt(2), len = 100), plot.it = TRUE)
+dd.lam2 <- glm.lambda(resp.mat ~ cnt, NumAlt = 3, 
+	lambda = seq(dd.lam$lambda/sqrt(2), dd.lam$lambda*sqrt(2), 
+	len = 100), plot.it = TRUE)
 summary(dd.lam2)
 ## Compare fits w/ and w/out lambda
 anova(dd.glm, dd.lam2, test = "Chisq")

@@ -15,7 +15,7 @@ function (H, FA, zdiff, Pcmax, method = "diff") {
 			zdiff <- qnorm(H) - qnorm(FA)
 			Pcmax <- pnorm(zdiff/2)
 		} else {
-			zdiff <- qnorm(H) - qnorm(1-Hits)
+			zdiff <- qnorm(H) - qnorm(1-H)
 			Pcmax <- pnorm(zdiff/2)
 	} } else {
 			if (pmatch("zdiff", names(Call), 0) > 0)
