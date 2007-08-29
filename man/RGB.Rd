@@ -3,7 +3,7 @@
 \docType{data}
 \title{ Luminance Calibration Data from Video Projector}
 \description{
-  The data was obtained from the measurements of the luminance
+  The data were obtained from the measurements of the luminance
   of the \code{R}, \code{G} and \code{B} channels individually,
   as well as the three together, W, for each of 21 grey levels,
   \code{GL} from a screen on which a video projector was displaying
