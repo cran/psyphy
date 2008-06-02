@@ -43,3 +43,31 @@ function( m = 2 )
 				  valideta = valideta, name = link),
 				  class = "link-glm")
 }
+
+`mafc.cloglog` <- 
+function( m = 2 ) 
+{
+	m <- as.integer(m)
+    if (m < 2) 
+        stop("m must be an integer > 1")
+    linkfun <- function(mu) {
+    	mu <-  pmax(pmin(mu, 1 - .Machine$double.eps), 
+    		1/m + .Machine$double.eps)
+        	log(-log((m - mu * m)/(m - 1))) 
+     }
+     linkinv <- function(eta) {
+        	tmp <- 1/m + ((m - 1)/m) * (-expm1(-exp(eta)))
+  	     	pmax(pmin(tmp, 1 - .Machine$double.eps), 
+        		1/m + .Machine$double.eps) 
+     }
+     mu.eta <- function(eta) {
+           eta <- pmin(eta, 700)
+           pmax(((m - 1)/m) * exp(eta) * exp(-exp(eta)),
+            .Machine$double.eps)
+     }
+     valideta <- function(eta) TRUE
+     link <- paste("mafc.cloglog(", m, ")", sep = "")
+     structure(list(linkfun = linkfun, linkinv = linkinv, 
+         	mu.eta = mu.eta, 
+        valideta = valideta, name = link), class = "link-glm")
+        }

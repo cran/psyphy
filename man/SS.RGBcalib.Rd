@@ -54,7 +54,7 @@ SS.RGBcalib(Blev, Br, Bg, Bb, gamm, Rgun, Ggun, Bgun)
 }
 \value{
   returns a numeric vector giving the estimated luminance given the parameters passed as arguments and a gradient matrix and a hessian array as attributes.}
-}
+
 \references{ ~put references to the literature/web site here ~ }
 \author{Kenneth Knoblauch }
 

@@ -23,7 +23,7 @@ The link returns a list containing functions required for relating the response 
   \item{valideta }{The domain over which the linear predictor is valid}
   \item{link }{A name to be used for the link}
 }
-\references{Wichmann, F. A. and Hill, N. J. (2001) The psychometric function: I.Fitting, sampling, and goodness of fit. Percept Psychophys., 63(8), 1293--1313.}
+\references{Wichmann, F. A. and Hill, N. J. (2001) The psychometric function: I.Fitting, sampling, and goodness of fit. \emph{Percept Psychophys.}, 63(8), 1293--1313.}
 \author{Ken Knoblauch}
 \note{Due to the difficulty of the task, subject error or incorrectly recorded data, psychophysical data may reveal less than perfect performance when stimulus differences are readily visible.  When this occurs, letting the upper asymptote be less than 1 often results in a better fit to the data and a less-biased estimate of the steepness of the curve (see example below). 
 }

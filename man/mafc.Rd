@@ -2,6 +2,7 @@
 \alias{mafc}
 \alias{mafc.logit}
 \alias{mafc.probit}
+\alias{mafc.cloglog}
 
 \title{Links for Binomial Family for m-alternative Forced-choice }
 \description{ These provide links for the binomial family for fitting
@@ -10,6 +11,7 @@
 \usage{
 mafc.logit( m = 2 )
 mafc.probit( m = 2 )
+mafc.cloglog( m = 2 )
 }
 
 \arguments{ \item{m}{is the integer number (>1) of choices (Default to
@@ -61,7 +63,7 @@ with \code{gnlr}).
 \seealso{
   \code{\link{family}}, \code{\link{make.link}}, \code{\link{glm}},
   \code{\link{optim}}}
-}
+
 \examples{
 #A toy example,
 b <- log(3.5)
@@ -84,6 +86,9 @@ resp.mat <- matrix(c(ny, nn), ncol = 2)
 
 ddprob.glm <- glm(resp.mat ~ cnt, family = binomial(mafc.probit(3)))
 ddlog.glm <- glm(resp.mat ~ cnt, family = binomial(mafc.logit(3)))
+# Can fit a Weibull function, but use log contrast as variable
+ddweib.glm <- glm(resp.mat ~ log(cnt), 
+	family = binomial(mafc.cloglog(3))) 
 
 plot(cnt, phat, log = "x", cex = 1.5, ylim = c(0, 1))
 pcnt <- seq(0.01, 0.1, len = 100)
@@ -91,6 +96,14 @@ lines(pcnt, predict(ddprob.glm, data.frame(cnt = pcnt),
 			type = "response"), lwd = 2)
 lines(pcnt, predict(ddlog.glm, data.frame(cnt = pcnt),
 			type = "response"), lwd = 2, lty = 2)
+lines(pcnt, predict(ddweib.glm, data.frame(cnt = pcnt),
+			type = "response"), lwd = 3, col = "grey")
+
+# Weibull parameters \alpha and \beta
+cc <- coef(ddweib.glm)
+alph <- exp(-cc[1]/cc[2])
+bet <- cc[2]
+
 
 #More interesting example with data from Yssaad-Fesselier and Knoblauch
 data(ecc2)
