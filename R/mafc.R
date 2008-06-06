@@ -71,3 +71,28 @@ function( m = 2 )
          	mu.eta = mu.eta, 
         valideta = valideta, name = link), class = "link-glm")
         }
+
+`mafc.weib` <- function(...)
+	mafc.cloglog(...)
+	
+`mafc.cauchit` <- function( m = 2) {
+	 m <- as.integer(m)
+    if (m < 2) 
+        stop("m must be an integer > 1")
+	linkfun <- function(mu) {
+		mu <- pmax(mu, 1/m + .Machine$double.eps)
+		qcauchy((m * mu - 1)/(m - 1))
+	}
+	linkinv <- function(eta) {
+           thresh <- -qcauchy(.Machine$double.eps)
+           eta <- pmin(pmax(eta, -thresh), thresh)
+           1/m + (m - 1)/m * pcauchy(eta)
+    }
+     mu.eta <- function(eta) {
+     	pmax(((m - 1)/m)*  dcauchy(eta), .Machine$double.eps)	}
+   	valideta <- function(eta) TRUE
+   	link <- paste("mafc.cauchy(", m, ")", sep = "")
+    structure(list(linkfun = linkfun, linkinv = linkinv, mu.eta = mu.eta, 
+        valideta = valideta, name = link), class = "link-glm")
+
+}

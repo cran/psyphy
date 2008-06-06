@@ -3,6 +3,8 @@
 \alias{mafc.logit}
 \alias{mafc.probit}
 \alias{mafc.cloglog}
+\alias{mafc.weib}
+\alias{mafc.cauchit}
 
 \title{Links for Binomial Family for m-alternative Forced-choice }
 \description{ These provide links for the binomial family for fitting
@@ -12,11 +14,14 @@
 mafc.logit( m = 2 )
 mafc.probit( m = 2 )
 mafc.cloglog( m = 2 )
+mafc.weib( ... )
+mafc.cauchit( m = 2 )
 }
 
 \arguments{ \item{m}{is the integer number (>1) of choices (Default to
     2AFC).  For m = 1 (Yes/No paradigm), use one of the built-in links
-    for the binomial family.}  }
+    for the binomial family.}  
+    \item{...}{ just to pass along the formals of \code{mafc.cloglog}.}}
 
 \details{ These
 functions provide links for fitting psychometric functions arising from
@@ -27,7 +32,11 @@ aymptote which is constrained to approach 1.  If the upper asympotote
 must be estimated, it would be better to maximize directly the
 likelihood, either with a function like \code{optim} or \code{gnlr} from
 J. K. Lindsey's package \pkg{gnlm} (available at
-\url{http://popgen.unimaas.nl/~jlindsey/rcode.html}).  }
+\url{http://popgen.unimaas.nl/~jlindsey/rcode.html}). Alternatively,
+the function \code{\link{probit.lambda}} can be used with a known
+upper asymptote, or \code{\link{glm.lambda}} or \code{\link{glm.WH}}
+to estimate one, with a probit link.  \code{mafc.weib} is just an
+alias for \code{mafc.cloglog}.}
 
 \value{ Each
 link returns a list containing functions required for relating the
@@ -62,7 +71,8 @@ with \code{gnlr}).
 
 \seealso{
   \code{\link{family}}, \code{\link{make.link}}, \code{\link{glm}},
-  \code{\link{optim}}}
+  \code{\link{optim}}, \code{\link{probit.lambda}}, \code{\link{glm.lambda}},
+  \code{\link{glm.WH}}}
 
 \examples{
 #A toy example,
@@ -87,8 +97,8 @@ resp.mat <- matrix(c(ny, nn), ncol = 2)
 ddprob.glm <- glm(resp.mat ~ cnt, family = binomial(mafc.probit(3)))
 ddlog.glm <- glm(resp.mat ~ cnt, family = binomial(mafc.logit(3)))
 # Can fit a Weibull function, but use log contrast as variable
-ddweib.glm <- glm(resp.mat ~ log(cnt), 
-	family = binomial(mafc.cloglog(3))) 
+ddweib.glm <- glm(resp.mat ~ log(cnt), family = binomial(mafc.cloglog(3))) 
+ddcau.glm <- glm(resp.mat ~ log(cnt), family = binomial(mafc.cauchit(3)))
 
 plot(cnt, phat, log = "x", cex = 1.5, ylim = c(0, 1))
 pcnt <- seq(0.01, 0.1, len = 100)
@@ -98,6 +108,8 @@ lines(pcnt, predict(ddlog.glm, data.frame(cnt = pcnt),
 			type = "response"), lwd = 2, lty = 2)
 lines(pcnt, predict(ddweib.glm, data.frame(cnt = pcnt),
 			type = "response"), lwd = 3, col = "grey")
+lines(pcnt, predict(ddcau.glm, data.frame(cnt = pcnt),
+			type = "response"), lwd = 3, col = "grey", lty = 2)
 
 # Weibull parameters \alpha and \beta
 cc <- coef(ddweib.glm)
