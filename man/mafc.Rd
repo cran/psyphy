@@ -76,7 +76,7 @@ with \code{gnlr}).
 
 \examples{
 #A toy example,
-b <- log(3.5)
+b <- 3.5
 g <- 1/3
 d <- 0.0
 a <- 0.04
@@ -85,11 +85,8 @@ num.tr <- 160
 cnt <- 10^seq(-2, -1, length = 6) # contrast levels
 
 #simulated observer responses
-wb <- function(p) {
-                   p[3] + (1 - p[3] - p[4]) *
-                        (1 - exp(-((cnt/p[1])^exp(p[2]))))
-                   }
-ny <- rbinom(length(cnt), num.tr, wb(p))
+truep <- g + (1 - g - d) * pweibull(cnt, b, a)
+ny <- rbinom(length(cnt), num.tr, truep)
 nn <- num.tr - ny
 phat <- ny/(ny + nn)
 resp.mat <- matrix(c(ny, nn), ncol = 2)

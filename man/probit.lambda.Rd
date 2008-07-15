@@ -29,7 +29,7 @@ The link returns a list containing functions required for relating the response 
 }
 \seealso{\code{\link{mafc}}, \code{\link{glm}}, \code{\link{glm.lambda}}, \code{\link{family}}, \code{\link{make.link}} }
 \examples{
-b <- log(3.5)
+b <- 3.5
 g <- 1/3
 d <- 0.025
 a <- 0.04
@@ -37,12 +37,9 @@ p <- c(a, b, g, d)
 num.tr <- 160
 cnt <- 10^seq(-2, -1, length = 6) # contrast levels
 
-#simulated observer responses
-wb <- function(p) {
-                   p[3] + (1 - p[3] - p[4]) *
-                        (1 - exp(-((cnt/p[1])^exp(p[2]))))
-                   }
-ny <- rbinom(length(cnt), num.tr, wb(p))
+#simulated Weibull-Quick observer responses
+truep <- g + (1 - g - d) * pweibull(cnt, b, a)
+ny <- rbinom(length(cnt), num.tr, truep)
 nn <- num.tr - ny
 phat <- ny/(ny + nn)
 resp.mat <- matrix(c(ny, nn), ncol = 2)

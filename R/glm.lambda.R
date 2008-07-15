@@ -42,6 +42,7 @@ glm.lambda <- function(formula, data, NumAlt = 2,
 summary.lambda <- function(object, ...) {
 	ans <- summary.glm(object, ...)	
 	ans$lambda <- object$lambda
+	if (!is.null(object$gam)) ans$gamma <- object$gam
 	class(ans) <- c("summary.lambda")
 	return(ans)
 }
@@ -107,7 +108,9 @@ cat("\nCall:\n")
     }
     cat("\n")
     
-    cat("lambda\t", round(x$lambda, digits), "\n")
+    cat("lambda\t", round(x$lambda, digits), "\t")
+    if (!is.null(x$gam)) cat("gamma\t", round(x$gam, digits), "\n") else
+    	cat("\n")
     invisible(x)
 	
 }

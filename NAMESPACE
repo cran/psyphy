@@ -1,6 +1,8 @@
 export(SS.RGBcalib, SS.calib, dprime.ABX, dprime.SD, dprime.mAFC, 
 	dprime.oddity, glm.WH, glm.lambda, mafc.probit, 
 	mafc.logit, mafc.cloglog, mafc.weib, 
-	mafc.cauchit, probit.lambda)
+	mafc.cauchit, probit.lambda, logit.2asym,
+	probit.2asym, cauchit.2asym, cloglog.2asym,
+	weib.2asym, psyfun.2asym)
 S3method(print, summary.lambda)
 S3method(summary, lambda)

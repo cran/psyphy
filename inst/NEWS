@@ -1,6 +1,11 @@
 v0.0-6
  - added an mafc link for the cloglog link, which permits fitting Weibull
  psychometric functions on a log stimulus axis.  See example(mafc).
-v0.07
+v0.0-7
  - added mafc.weib link that is just an alias for mafc.cloglog
  - added mafc.cauchit link
+v0.0-8
+ - added additional links that include parameters for both upper and lower  
+ asymptotes and a function, psyfun.2asym, that is a wrapper for glm and 
+ uses the new links to fit a psychometric function with variable upper 
+ and lower and upper asymptotes.
