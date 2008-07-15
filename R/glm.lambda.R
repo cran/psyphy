@@ -43,6 +43,8 @@ summary.lambda <- function(object, ...) {
 	ans <- summary.glm(object, ...)	
 	ans$lambda <- object$lambda
 	if (!is.null(object$gam)) ans$gamma <- object$gam
+	if(!is.null(object$SEgam)) ans$SEgam <- object$SEgam
+	if(!is.null(object$SElambda)) ans$SElambda <- object$SElambda
 	class(ans) <- c("summary.lambda")
 	return(ans)
 }
@@ -111,6 +113,10 @@ cat("\nCall:\n")
     cat("lambda\t", round(x$lambda, digits), "\t")
     if (!is.null(x$gam)) cat("gamma\t", round(x$gam, digits), "\n") else
     	cat("\n")
+	if (!is.null(x$SEgam)) {
+		cat("+/-SE(lambda) = \t(", plogis(qlogis(x$lambda) + c(-x$SElambda, x$SElambda)), ")\n")
+		cat("+/-SE(gamma) = \t(", plogis(qlogis(x$gam) + c(-x$SEgam, x$SEgam)), ")\n")	
+	}
     invisible(x)
 	
 }

@@ -22,8 +22,8 @@ psyfun.2asym <- function(formula, data, link = logit.2asym,
 	while (dd > tol) {
         n <- n + 1
         p <- qlogis(p)
-        p <- optim(p, ll, x = new.glm)$par
-        p <- plogis(p)
+        p.opt <- optim(p, ll, x = new.glm, hessian = TRUE)
+        p <- plogis(p.opt$par)
         new.glm <- glm(formula, 
         	family = binomial(link(g = p[1], lam = p[2])), 
         	data = data, ...)
@@ -35,9 +35,17 @@ psyfun.2asym <- function(formula, data, link = logit.2asym,
         	print("Number of iterations exceeded without finding best fit. \n")
         	break}    
     }
+    p.svd <- svd(p.opt$hessian)
+    SEp <- sqrt(diag(with(p.svd, v %*% diag(1/ifelse(zapsmall(d), d, Inf)) %*% t(u))))
+#    X <<- SEp
+    SEp[zapsmall(SEp) == 0] <- NA
 	new.glm$lambda <- p[2]
+	new.glm$SElambda <- SEp[2]
 	new.glm$gam <- p[1]
+	new.glm$SEgam <- SEp[1]
 	cat("lambda = \t", p[2], "\t", "gamma = ", p[1], "\n")
+	cat("+/-SE(lambda) = \t(", plogis(qlogis(p[2]) + c(-SEp[2], SEp[2])), ")\n")
+	cat("+/-SE(gamma) = \t(", plogis(qlogis(p[1]) + c(-SEp[1], SEp[1])), ")\n")
 	new.glm$df.residual <- new.glm$df.residual - 2
 	new.glm$call[[3]][[2]][[1]] <- as.name(substitute(link))
 	class(new.glm) <- c("lambda", "glm", "lm")

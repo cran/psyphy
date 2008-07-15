@@ -7,5 +7,8 @@ v0.0-7
 v0.0-8
  - added additional links that include parameters for both upper and lower  
  asymptotes and a function, psyfun.2asym, that is a wrapper for glm and 
- uses the new links to fit a psychometric function with variable upper 
- and lower and upper asymptotes.
+ uses the new links to fit a psychometric function with variable lower and 
+ upper asymptotes.
+v0.0-9
+ - added standard error estimates based on the Hessian from last iteration 
+ of optim to the output of psyfun.2asym (suggested by Ralph Pirow).

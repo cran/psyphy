@@ -35,7 +35,9 @@ psyfun.2asym(formula, data, link = logit.2asym, init.g = 0.01,
  list of class \sQuote{lambda} inheriting from classes \sQuote{glm} and \sQuote{lm} and containing additional components
   \item{lambda }{numeric indicating 1 - upper asymptote}
   \item{gam }{numeric indicating lower asymptote}
-  
+  \item{SElambda }{numeric indicating standard error estimate for lambda based on the Hessian of the last interation of \code{optim}.  The optimization is done on the value transformed by the function \code{plogis} and the value is stored in on this scale}
+   \item{SEgam }{numeric indicating standard error estimate for gam estimated in the same fashion as \code{SElambda}}
+  If a diagonal element of the Hessian is sufficiently close to 0, \code{NA} is returned.
 }
 \references{ Klein S. A. (2001) Measuring, estimating, and understanding the psychometric function: a commentary. \emph{Percept Psychophys.}, \bold{63(8)}, 1421--1455.
 
