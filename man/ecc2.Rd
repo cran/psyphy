@@ -20,8 +20,8 @@
     \item{\code{task}}{a factor with levels \code{DET} \code{ID}
     	indicating the two tasks, detection and identification.}
     \item{\code{Size}}{a numeric vector indicating the letter height}
-    \item{\code{nyes}}{an integer vector indicating the number of correct responses (\code{DET} or \code{ID}).}
-    \item{\code{nno}}{an integer vector, indicating the number
+    \item{\code{Correct}}{an integer vector indicating the number of correct responses (\code{DET} or \code{ID}).}
+    \item{\code{Incorrect}}{an integer vector, indicating the number
     	of incorrect responses.}
   }
 }
@@ -37,8 +37,9 @@ functions in R. \emph{ Behav Res Methods.},  \bold{38(1)}, 28--41. }
 \examples{
 data(ecc2)
 library(lattice)
-xyplot(nyes/(nyes + nno) ~ Contr | Size * task, ecc2, type = "b", 
-		scale = list(x = list(log = TRUE), y = list(limits = c(0, 1.05))),
+xyplot(Correct/(Correct + Incorrect) ~ Contr | Size * task, ecc2, 
+		type = "b", scale = list(x = list(log = TRUE), 
+		y = list(limits = c(0, 1.05))),
 		xlab = "Contrast", ylab = "Proportion Correct Response",
 		panel = function(x, y, ...) {
 			panel.xyplot(x, y, ...)

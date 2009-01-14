@@ -116,16 +116,17 @@ bet <- cc[2]
 
 #More interesting example with data from Yssaad-Fesselier and Knoblauch
 data(ecc2)
-ecc2.glm <- glm(cbind(nyes, nno) ~ Contr * Size * task, 
+ecc2.glm <- glm(cbind(Correct, Incorrect) ~ Contr * Size * task, 
 			family = binomial(mafc.probit(4)), data = ecc2)
 summary(ecc2.glm)
 ecc2$fit <- fitted(ecc2.glm)
 library(lattice)
-xyplot(nyes/(nyes + nno) ~ Contr | Size * task, data = ecc2,
+xyplot(Correct/(Correct + Incorrect) ~ Contr | Size * task, data = ecc2,
 	subscripts = TRUE, ID = with(ecc2, Size + as.numeric(task)),
 	scale = list(x = list(log = TRUE), 
 				 y = list(limits = c(0, 1.05))),
 	xlab = "Contrast", ylab = "Proportion Correct Response",
+	aspect = "xy",
 	panel = function(x, y, subscripts, ID, ...) {
 		which = unique(ID[subscripts])
 		llines(x, ecc2$fit[which ==ID], col = "black", ...)

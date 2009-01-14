@@ -12,3 +12,10 @@ v0.0-8
 v0.0-9
  - added standard error estimates based on the Hessian from last iteration 
  of optim to the output of psyfun.2asym (suggested by Ralph Pirow).
+v0.1-0
+ - second graphic of mafc example set to aspect = "xy" for better 
+ rendition
+ - modified column names of data set ecc2 from nyes, nno to 
+ Correct and Incorrect, better reflecting the meaning of these
+ variables.
+ 
