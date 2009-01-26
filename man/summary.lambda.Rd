@@ -16,7 +16,7 @@ Identical to \code{summary.glm} but with one line of additional output: the esti
   \item{object}{ Fitted model object of class \dQuote{lambda} inheriting from \code{glm} and \code{lm}.  Typically the output of \code{glm.lambda}.}
   \item{x}{ an object of class \dQuote{summary.lambda}, usually a result of a call to \code{summary.lambda}.  }
   \item{digits}{ the number of significant digits to use when printing.}
-  \item{symbolic.cor}{logical. If \code{TRUE}, print the correlations in a symbolic form (see \code{\link{symnum}} rather than as numbers.}
+  \item{symbolic.cor}{logical. If \code{TRUE}, print the correlations in a symbolic form (see \code{\link{symnum}}) rather than as numbers.}
   \item{signif.stars}{logical.  If \code{TRUE}, \dQuote{significance stars} are printed for each coefficient.}
   \item{\dots}{further arguments passed to or from other methods. }
 }
