@@ -21,5 +21,7 @@ v0.1-0
 v0.1-1
  - fixed an unmatched parenthesis in summary.lambda.Rd
  - fixed a double dot '..' in the name of an Rd file that did not belong
-
+v0.1-2
+ - fixed some warnings for Rd files
+ 
  

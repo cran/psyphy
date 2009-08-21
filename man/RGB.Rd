@@ -22,12 +22,7 @@
     \item{\code{Gun}}{factor with levels \code{R} \code{G} \code{B} \code{W}}
   }
 }
-\details{
-}
-\source{
-}
-\references{
-}
+
 \examples{
 data(RGB)
 

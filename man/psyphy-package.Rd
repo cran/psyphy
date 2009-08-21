@@ -25,14 +25,8 @@ luminance calibration of the three channels of a CRT-like display.
 }
 \author{
 Kenneth Knoblauch
- <knoblauch@lyon.inserm.frt>
-}
-\references{
+ <ken.knoblauch@inserm.fr>
 }
 
 \keyword{ package }
-\seealso{
 
-}
-\examples{
-}

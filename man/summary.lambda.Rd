@@ -29,8 +29,6 @@ Identical to \code{summary.glm} but with one line of additional output: the esti
 \author{ Ken Knoblauch }
 
 \seealso{ \code{\link{probit.lambda}},  \code{\link{glm.lambda}} }
-\examples{
 
-}
 \keyword{ methods }
 \keyword{ print }

@@ -25,14 +25,10 @@
     	of incorrect responses.}
   }
 }
-\details{
- 
-}
-\source{
- Yssaad-Fesselier, R. and Knoblauch, K. (2006) Modeling psychometric
-functions in R. \emph{ Behav Res Methods.},  \bold{38(1)}, 28--41. }
+
 \references{
-  
+   Yssaad-Fesselier, R. and Knoblauch, K. (2006) Modeling psychometric
+functions in R. \emph{ Behav Res Methods.},  \bold{38(1)}, 28--41.
 }
 \examples{
 data(ecc2)

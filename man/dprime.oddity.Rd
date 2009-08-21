@@ -14,9 +14,7 @@ dprime.oddity(Pc.tri)
     responses for an unbiased observer.
 }
 }
-\details{
 
-}
 \value{
  Returns the value of \eqn{d'}
 }
