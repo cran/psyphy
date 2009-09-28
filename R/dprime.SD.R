@@ -1,6 +1,7 @@
 `dprime.SD` <-
 function (H, FA, zdiff, Pcmax, method = "diff") {
 	if (method == "diff") {
+		if (isTRUE(all.equal(H, FA))) return(0)
 		root2 <- sqrt(2)
 		k <- root2 * qnorm(FA/2)
 		est.dp <- function(dp)
