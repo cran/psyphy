@@ -23,5 +23,14 @@ v0.1-1
  - fixed a double dot '..' in the name of an Rd file that did not belong
 v0.1-2
  - fixed some warnings for Rd files
+v0.1-3
+  - dprime.SD was failing for small values of H and FA when equal
+    (thanks to Paul Willis) 
  
+v0.1-4
+  - the argument name of the mafc links (mafc.logit, mafc.probit, etc.)
+    has been changed from m to .m.  This should permit these links to
+    work with the glmer function in the lme4a, the development version
+    of lme4.
+  - dealt with some warnings concerning potential partial argument matching
  

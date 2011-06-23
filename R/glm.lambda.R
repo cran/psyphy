@@ -16,10 +16,7 @@ glm.lambda <- function(formula, data, NumAlt = 2,
 		ss <- seq(-n, n) + mdev } else {
 		ss <- seq(1, 2*n+1) }
 	lam.quad <- lm(dev[ss] ~ lambda[ss] + I(lambda[ss]^2))
-#    lam2 <- lambda^2
-#    lam.quad <- lm(dev ~ lam2 + I(lam2^2))
 	lmin <- -0.5 * coef(lam.quad)[2]/coef(lam.quad)[3]
-#	lmin <- sqrt(lmin)
 	res <- glm(formula, family = 
 			binomial(probit.lambda(NumAlt, lmin)),
 			data = data, ...)
@@ -61,7 +58,7 @@ cat("\nCall:\n")
         names(x$deviance.resid) <- c("Min", "1Q", "Median", "3Q", 
             "Max")
     }
-    print.default(x$deviance.resid, digits = digits, na = "", 
+    print.default(x$deviance.resid, digits = digits, na.print = "", 
         print.gap = 2)
     if (length(x$aliased) == 0) {
         cat("\nNo Coefficients\n")
@@ -98,7 +95,7 @@ cat("\nCall:\n")
         if (p > 1) {
             cat("\nCorrelation of Coefficients:\n")
             if (is.logical(symbolic.cor) && symbolic.cor) {
-                print(symnum(correl, abbr.col = NULL))
+                print(symnum(correl, abbr.colnames = NULL))
             }
             else {
                 correl <- format(round(correl, 2), nsmall = 2, 

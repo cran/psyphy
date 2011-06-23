@@ -11,14 +11,14 @@
   m-alternative forced-choice psychophysical functions.  }
 
 \usage{
-mafc.logit( m = 2 )
-mafc.probit( m = 2 )
-mafc.cloglog( m = 2 )
+mafc.logit( .m = 2 )
+mafc.probit( .m = 2 )
+mafc.cloglog( .m = 2 )
 mafc.weib( ... )
-mafc.cauchit( m = 2 )
+mafc.cauchit( .m = 2 )
 }
 
-\arguments{ \item{m}{is the integer number (>1) of choices (Default to
+\arguments{ \item{.m}{is the integer number (>1) of choices (Default to
     2AFC).  For m = 1 (Yes/No paradigm), use one of the built-in links
     for the binomial family.}  
     \item{...}{ just to pass along the formals of \code{mafc.cloglog}.}}
