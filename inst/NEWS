@@ -33,4 +33,10 @@ v0.1-4
     work with the glmer function in the lme4a, the development version
     of lme4.
   - dealt with some warnings concerning potential partial argument matching
- 
+
+v0.1-5
+  - added possibility for dprime.SD to give negative values (with a warning)
+    for the IO method (suggested by Sverre Stausland)
+  
+  - increased the range of possible d' values obtainable from dprime.SD to 10
+  (was 5) for method "diff". 

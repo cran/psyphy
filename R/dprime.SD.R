@@ -6,7 +6,7 @@ function (H, FA, zdiff, Pcmax, method = "diff") {
 		k <- root2 * qnorm(FA/2)
 		est.dp <- function(dp)
 			{ H - pnorm((k + dp)/root2) - pnorm((k - dp)/root2) }
-		dp.res <- uniroot(est.dp, interval = c(0,5))
+		dp.res <- uniroot(est.dp, interval = c(0, 10))
 		dprime <- dp.res$root
 	} else
 	if (method == "IO")	{
@@ -22,8 +22,10 @@ function (H, FA, zdiff, Pcmax, method = "diff") {
 			if (pmatch("zdiff", names(Call), 0) > 0)
 				{ Pcmax <- pnorm(zdiff/2)	} 
 			} 
-	dprime <- 2 * qnorm(0.5 * (1 + sqrt(2*Pcmax - 1)))
+	dprime <- sign(Pcmax - 0.5) * if ( Pcmax < 0.5 ) 2 * qnorm(0.5 * (1 + sqrt(2 * (1 - Pcmax) - 1))) else 2 * qnorm(0.5 * (1 + sqrt(2 * Pcmax - 1)))
+#2 * qnorm(0.5 * (1 + sqrt(2*Pcmax - 1)))
 	} else
 	{stop("method must be one of diff or IO") }
+	if(dprime < 0) warning("FA > H giving d' < 0!")
 	dprime
 }
