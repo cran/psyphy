@@ -40,3 +40,6 @@ v0.1-5
   
   - increased the range of possible d' values obtainable from dprime.SD to 10
   (was 5) for method "diff". 
+
+v0.1-6
+  removed LazyLoad from Description
