@@ -8,11 +8,11 @@ function( .m = 2 )
 		mu <- pmax(mu, 1/.m +  .Machine$double.eps)
 		qlogis((.m * mu - 1)/(.m - 1) ) }  
 	linkinv <- function(eta) {
-		1/.m  + (.m - 1)/.m * .Call("logit_linkinv", eta,
-            PACKAGE = "stats")
+		1/.m  + (.m - 1)/.m * binomial()$linkinv(eta) 
+#		.Call("logit_linkinv", eta, PACKAGE = "stats")
 		}
-	mu.eta <- function(eta) ((.m -1) / .m) * 
-		.Call("logit_mu_eta", eta, PACKAGE = "stats")
+	mu.eta <- function(eta) ((.m -1) / .m) *  binomial()$mu.eta(eta)
+#		.Call("logit_mu_eta", eta, PACKAGE = "stats")
 	valideta <- function(eta) TRUE
 	link <- paste("mafc.logit(", .m, ")", sep = "")
 	structure(list(linkfun = linkfun,

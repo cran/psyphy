@@ -42,4 +42,8 @@ v0.1-5
   (was 5) for method "diff". 
 
 v0.1-6
-  removed LazyLoad from Description
+  - removed LazyLoad from Description
+
+v0.1-7
+  - substituted binomial()$linkinv and binomial()$mu.eta for uses of
+    .Call in mafc and mafc.logit and logit.2asym link functions. 

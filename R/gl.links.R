@@ -9,12 +9,12 @@ logit.2asym <- function(g, lam) {
 		qlogis((mu - g)/(1 - g - lam))
 		}
 	linkinv <- function(eta) {
-		g + (1 - g - lam) * 
-		 .Call("logit_linkinv", eta, PACKAGE = "stats")
+		g + (1 - g - lam) * binomial()$linkinv(eta)
+#		 .Call("logit_linkinv", eta, PACKAGE = "stats")
 		}
 	mu.eta <- function(eta) {
-		(1 - g - lam) * .Call("logit_mu_eta", eta, 
-			PACKAGE = "stats")
+		(1 - g - lam) * binomial()$mu.eta(eta)
+#		.Call("logit_mu_eta", eta, PACKAGE = "stats")
 		}
 	valideta <- function(eta) TRUE
 	link <- paste("logit.2asym(", g, ", ", lam, ")", sep = "")
