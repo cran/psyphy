@@ -78,10 +78,10 @@ pairs(profile(W.nls), absVal = FALSE)
 
 
 #Fitting 3 guns with independent gamma's		
-RGB0.nls <- nlme:::nlsList(Lum ~ SS.calib(Blev, k, gamm, GL) | Gun,
+RGB0.nls <- nlme::nlsList(Lum ~ SS.calib(Blev, k, gamm, GL) | Gun,
 		data = subset(RGB, Gun != "W"))
 summary(RGB0.nls)
-plot(nlme:::intervals(RGB0.nls))
+plot(nlme::intervals(RGB0.nls))
 
 # Add covariates to data.frame for R, G and B grey levels
 gg <- model.matrix(~-1 + Gun/GL, RGB)[ , c(5:7)]

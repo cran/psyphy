@@ -47,3 +47,6 @@ v0.1-6
 v0.1-7
   - substituted binomial()$linkinv and binomial()$mu.eta for uses of
     .Call in mafc and mafc.logit and logit.2asym link functions. 
+
+v0.1-7
+  - eliminated some triple colons from examples
