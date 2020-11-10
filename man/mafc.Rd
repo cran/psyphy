@@ -31,8 +31,8 @@ psychometric function(s), but provide no means of estimating the upper
 aymptote which is constrained to approach 1.  If the upper asympotote
 must be estimated, it would be better to maximize directly the
 likelihood, either with a function like \code{optim} or \code{gnlr} from
-J. K. Lindsey's package \pkg{gnlm} (available at
-\url{http://popgen.unimaas.nl/~jlindsey/rcode.html}). Alternatively,
+ package \pkg{gnlm} (available at
+\url{https://www.commanster.eu/rcode.html}). Alternatively,
 the function \code{\link{probit.lambda}} can be used with a known
 upper asymptote, or \code{\link{glm.lambda}} or \code{\link{glm.WH}}
 to estimate one, with a probit link.  \code{mafc.weib} is just an
@@ -52,7 +52,7 @@ name of the link.
 
 Williams J, Ramaswamy D and Oulhaj A (2006) 10 Hz flicker improves
 recognition memory in older people \emph{BMC Neurosci.} 2006 5;7:21
-\url{http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1434755}
+\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1434755/}
 (for an example developed prior to this one, but for m = 2).
 
 Klein S. A. (2001) Measuring, estimating, and understanding the

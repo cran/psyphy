@@ -6,3 +6,9 @@ export(SS.RGBcalib, SS.calib, dprime.ABX, dprime.SD, dprime.mAFC,
 	weib.2asym, psyfun.2asym)
 S3method(print, summary.lambda)
 S3method(summary, lambda)
+importFrom("graphics", "abline", "lines")
+importFrom("stats", "binomial", "coef", "dcauchy", "deviance", "dnorm",
+             "glm", "integrate", "lm", "logLik", "naprint", "optim",
+             "optimize", "pcauchy", "plogis", "pnorm", "predict",
+             "printCoefmat", "qcauchy", "qlogis", "qnorm", "quantile",
+             "summary.glm", "symnum", "uniroot")

@@ -18,7 +18,7 @@
     attr(.value, "hessian") <- .hessian
     .value
 }
-, initial = function(mCall, data, LHS) {
+, initial = function(mCall, data, LHS, ...) {
 	xy <- sortedXyData(mCall[["GL"]], LHS, data)
 	Blev <- min(xy[["y"]])
 	k <- max(xy[["y"]])

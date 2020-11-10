@@ -35,7 +35,7 @@
     attr(.value, "hessian") <- .hessian
     .value
 }
-, initial = function(mCall, data, LHS) {
+, initial = function(mCall, data, LHS, ...) {
 	Lum <- eval(asOneSidedFormula("Lum")[[2]], data)
 	Rgun <- eval(asOneSidedFormula("Rgun")[[2]], data)
 	Ggun <- eval(asOneSidedFormula("Ggun")[[2]], data)

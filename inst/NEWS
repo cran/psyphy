@@ -50,3 +50,10 @@ v0.1-7
 
 v0.1-7
   - eliminated some triple colons from examples
+
+v0.2-0
+  - fixed title case per CRAN standards
+
+v0.2-1
+  - added ... to initial functions of SS.calib and SS.RGBcalib to accomadate
+    passing trace and control arguments for nls as required for R > 4.0.3.
