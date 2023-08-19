@@ -15,7 +15,7 @@ dprime.SD(H, FA, zdiff, Pcmax, method = "diff")
   \item{zdiff}{numeric. Difference of z-scores for Hit and False Alarm rates
    ( only valid for method "IO")}
   \item{Pcmax}{numeric in [0, 1].  Proportion correct for an unbiased observer,
-    \code{pnorm(zdiff)} (only valid for method "IO").
+    \code{pnorm(zdiff/2)} (only valid for method "IO").
   }
   \item{method}{character. Specifies the model to describe
     the observer's criterion for dividing up the decision space,

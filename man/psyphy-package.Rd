@@ -9,13 +9,13 @@ Functions for analyzing psychophysical functions
 An assortment of functions that could be useful in analyzing data from pyschophysical experiments. It includes functions for calculating d' from several different experimental designs, links for mafc to be used with the binomial family in glm (and possibly other contexts) and a self-Start function for estimating gamma values for CRT screen calibrations.
 }
 \details{
-\tabular{ll}{
-Package: \tab psyphy\cr
-Type: \tab Package\cr
-Version: \tab 0.0-2\cr
-Date: \tab 2007-01-27\cr
-License: \tab GPL\cr
-}
+% \tabular{ll}{
+% Package: \tab psyphy\cr
+% Type: \tab Package\cr
+% Version: \tab 0.0-2\cr
+% Date: \tab 2007-01-27\cr
+% License: \tab GPL\cr
+% }
 For the moment, the package contains several functions for calculating
 \eqn{d'} for a variety of psychophysical paradigms, some link functions for
 the binomial family in glm (and perhaps other functions) for fitting

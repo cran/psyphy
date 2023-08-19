@@ -61,3 +61,6 @@ v0.2-1
 v0.2-3
   - changed URL's to DOI's for JSS citations
 
+v0.3
+  - documentation fix in dprime.SD
+  - corrected version misalignment in package man page and Description file

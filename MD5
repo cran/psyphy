@@ -1,4 +1,4 @@
-118fb282ba8249808acc0c4317341d07 *DESCRIPTION
+2b98670ef3691e1db9bef95f7935a46a *DESCRIPTION
 487093aa6e86b410715e1ef5b0faf42f *NAMESPACE
 602f1f05bdb63f79c2d82db9315445f3 *R/SS.RGBcalib.R
 97e8c8eeae85eb16df17dca67beb31eb *R/SS.calib.R
@@ -14,12 +14,12 @@ b82de69bd88971fc152067a7992c7c52 *R/mafc.R
 7b58640877ae1c8a7d0326c2be6fe8c4 *R/psyfun.2asym.R
 38b9474d4ae86b3179c8596c1aeea7ba *data/RGB.rda
 9485b30f7e79c4e34d622ac3ae856be4 *data/ecc2.rda
-7913c66fbf5d79ac495082c12fdfde1c *inst/NEWS
+077ab5cc7d93b35874078202d849d5c6 *inst/NEWS
 23c488bcea5b93390dd47acc1503c74b *inst/TODO
 dcbe0efda17467122f18ddb1fe65d3df *man/RGB.Rd
 418c9c08578e4124bf6af977ea13b531 *man/SS.RGBcalib.Rd
 ff0a3be8febb8c623b7d6ad722c47caf *man/dprime.ABX.Rd
-981e8aa06fc99d13c971cfd2b2def014 *man/dprime.SD.Rd
+ba3841c50e7a49eb20ef84d1163adbdf *man/dprime.SD.Rd
 2ddd8aa9557d56a0bcdf675d027e3288 *man/dprime.mAFC.Rd
 62f9eac1e55c1cf7da1461897e4c33af *man/dprime.oddity.Rd
 d0883c35ad168e2540418bb6e55887d8 *man/ecc2.Rd
@@ -29,5 +29,5 @@ ab58682cbc0c798d8702728b271a7dfb *man/logit.2asym.Rd
 8935290b0dca60084f5ee57541b35315 *man/mafc.Rd
 5e9697c6e0e43ba5cda075b1c6e12714 *man/probit.lambda.Rd
 5ebb475d2d9da1411068b348c0d2ec13 *man/psyfun.2asym.Rd
-45a8cb6033907a481faaac6c51728c71 *man/psyphy-package.Rd
+07117a72112face46033198f491bd9da *man/psyphy-package.Rd
 30c58d8fe6b0609585aeae8f3ef96fdf *man/summary.lambda.Rd
